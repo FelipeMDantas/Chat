@@ -1,12 +1,14 @@
 import { useState, useContext } from "react";
 import {
   collection,
+  doc,
   getDoc,
   getDocs,
   query,
   serverTimestamp,
   setDoc,
   updateDoc,
+  where,
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
@@ -72,10 +74,10 @@ const Search = () => {
         });
       }
     } catch (err) {}
+    
+    setUser(null);
+    setUsername("");
   };
-
-  setUser(null);
-  setUsername("");
 
   return (
     <div className="search">
