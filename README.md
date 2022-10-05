@@ -19,11 +19,13 @@ A couple of technologies were employed in this project. Among them:
 - [ReactJS] - a JavaScript library for building user interfaces
 - [NPM] - a package manager
 - [Sass] - a CSS extension language
+- [Firebase] - Google's Backend as a Service
 - [React Router DOM] - DOM bindings for React Router
 - [Prettier] - a code formatter
 
   [reactjs]: https://reactjs.org/
   [npm]: https://www.npmjs.com/
   [sass]: https://sass-lang.com/
+  [firebase]: https://firebase.google.com/
   [react router dom]: https://reactrouter.com/
   [prettier]: https://prettier.io/
