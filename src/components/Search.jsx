@@ -52,10 +52,10 @@ const Search = () => {
 
       if (!res.exists()) {
         //Create a chat in the chats collection
-        await setDoc(doc, (db, "chats", combinedId), { messages: [] });
+        await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
         //Create user chats
-        await updateDoc(doc, (db, "userChats", currentUser.uid), {
+        await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
@@ -64,7 +64,7 @@ const Search = () => {
           [combinedId + ".date"]: serverTimestamp(),
         });
 
-        await updateDoc(doc, (db, "userChats", user.uid), {
+        await updateDoc(doc(db, "userChats", user.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
             displayName: currentUser.displayName,
@@ -74,7 +74,7 @@ const Search = () => {
         });
       }
     } catch (err) {}
-    
+
     setUser(null);
     setUsername("");
   };

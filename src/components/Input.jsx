@@ -1,9 +1,8 @@
 import Img from "../img/img.png";
 import Attach from "../img/attach.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
-import { useState } from "react";
 import {
   arrayUnion,
   doc,
@@ -28,9 +27,7 @@ const Input = () => {
       const uploadTask = uploadBytesResumable(storageRef, img);
 
       uploadTask.on(
-        (error) => {
-          //setErr(true);
-        },
+        (error) => {},
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateDoc(doc(db, "chats", data.chatId), {

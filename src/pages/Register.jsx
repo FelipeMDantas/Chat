@@ -25,7 +25,7 @@ const Register = () => {
       const storageRef = ref(storage, `${displayName + date}`);
 
       await uploadBytesResumable(storageRef, file).then(() => {
-        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
           try {
             await updateProfile(res.user, {
               displayName,
